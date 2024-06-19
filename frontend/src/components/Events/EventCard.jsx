@@ -23,13 +23,12 @@ const EventCard = ({ active, data }) => {
         toast.success("Item added to cart successfully!");
       }
     }
-  }
+  };
   return (
     <div
       className={`w-full block bg-white rounded-lg ${
         active ? "unset" : "mb-12"
-      } lg:flex p-2`}
-    >
+      } lg:flex p-2`}>
       <div className="w-full lg:-w[50%] m-auto">
         <img src={`${data.images[0]?.url}`} alt="" />
       </div>
@@ -53,9 +52,13 @@ const EventCard = ({ active, data }) => {
         <br />
         <div className="flex items-center">
           <Link to={`/product/${data._id}?isEvent=true`}>
-            <div className={`${styles.button} text-[#fff]`}>See Details</div>
+            <div className={`${styles.button} text-white`}>See Details</div>
           </Link>
-          <div className={`${styles.button} text-[#fff] ml-5`} onClick={() => addToCartHandler(data)}>Add to cart</div>
+          <div
+            className={`${styles.button} text-white ml-5`}
+            onClick={() => addToCartHandler(data)}>
+            Add to cart
+          </div>
         </div>
       </div>
     </div>

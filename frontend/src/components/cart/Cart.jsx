@@ -26,13 +26,13 @@ const Cart = ({ setOpenCart }) => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full bg-[#0000004b] h-screen z-10">
+    <div className="fixed top-0 left-0 w-full bg-transparent h-screen z-10">
       <div className="fixed top-0 right-0 h-full w-[80%] 800px:w-[25%] bg-white flex flex-col overflow-y-scroll justify-between shadow-sm">
         {cart && cart.length === 0 ? (
           <div className="w-full h-screen flex items-center justify-center">
             <div className="flex w-full justify-end pt-5 pr-5 fixed top-3 right-3">
               <RxCross1
-                size={25}
+                size={20}
                 className="cursor-pointer"
                 onClick={() => setOpenCart(false)}
               />
@@ -44,14 +44,14 @@ const Cart = ({ setOpenCart }) => {
             <div>
               <div className="flex w-full justify-end pt-5 pr-5">
                 <RxCross1
-                  size={25}
+                  size={20}
                   className="cursor-pointer"
                   onClick={() => setOpenCart(false)}
                 />
               </div>
               {/* Item length */}
               <div className={`${styles.noramlFlex} p-4`}>
-                <IoBagHandleOutline size={25} />
+                <IoBagHandleOutline size={20} />
                 <h5 className="pl-2 text-[20px] font-[500]">
                   {cart && cart.length} items
                 </h5>
@@ -76,9 +76,8 @@ const Cart = ({ setOpenCart }) => {
               {/* checkout buttons */}
               <Link to="/checkout">
                 <div
-                  className={`h-[45px] flex items-center justify-center w-[100%] bg-[#e44343] rounded-[5px]`}
-                >
-                  <h1 className="text-[#fff] text-[18px] font-[600]">
+                  className={`h-[45px] flex items-center justify-center w-[100%] bg-red-500 rounded-[5px]`}>
+                  <h1 className="text-white text-[18px] font-[600]">
                     Checkout Now (USD${totalPrice})
                   </h1>
                 </div>
@@ -116,16 +115,14 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
       <div className="w-full flex items-center">
         <div>
           <div
-            className={`bg-[#e44343] border border-[#e4434373] rounded-full w-[25px] h-[25px] ${styles.noramlFlex} justify-center cursor-pointer`}
-            onClick={() => increment(data)}
-          >
+            className={`bg-red-500 border border-[#e4434373] rounded-full w-[25px] h-[25px] ${styles.noramlFlex} justify-center cursor-pointer`}
+            onClick={() => increment(data)}>
             <HiPlus size={18} color="#fff" />
           </div>
           <span className="pl-[10px]">{data.qty}</span>
           <div
-            className="bg-[#a7abb14f] rounded-full w-[25px] h-[25px] flex items-center justify-center cursor-pointer"
-            onClick={() => decrement(data)}
-          >
+            className="bg-primary/20 rounded-full w-[25px] h-[25px] flex items-center justify-center cursor-pointer"
+            onClick={() => decrement(data)}>
             <HiOutlineMinus size={16} color="#7d879c" />
           </div>
         </div>

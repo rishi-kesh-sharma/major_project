@@ -81,7 +81,7 @@ const ShopSettings = () => {
               alt=""
               className="w-[200px] h-[200px] rounded-full cursor-pointer"
             />
-            <div className="w-[30px] h-[30px] bg-[#E3E9EE] rounded-full flex items-center justify-center cursor-pointer absolute bottom-[10px] right-[15px]">
+            <div className="w-[30px] h-[30px] bg-secondary rounded-full flex items-center justify-center cursor-pointer absolute bottom-[10px] right-[15px]">
               <input
                 type="file"
                 id="image"
@@ -99,8 +99,7 @@ const ShopSettings = () => {
         <form
           aria-aria-required={true}
           className="flex flex-col items-center"
-          onSubmit={updateHandler}
-        >
+          onSubmit={updateHandler}>
           <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
             <div className="w-full pl-[3%]">
               <label className="block pb-2">Shop Name</label>

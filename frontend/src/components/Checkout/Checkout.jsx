@@ -27,31 +27,37 @@ const Checkout = () => {
   }, []);
 
   const paymentSubmit = () => {
-   if(address1 === "" || address2 === "" || zipCode === null || country === "" || city === ""){
-      toast.error("Please choose your delivery address!")
-   } else{
-    const shippingAddress = {
-      address1,
-      address2,
-      zipCode,
-      country,
-      city,
-    };
+    if (
+      address1 === "" ||
+      address2 === "" ||
+      zipCode === null ||
+      country === "" ||
+      city === ""
+    ) {
+      toast.error("Please choose your delivery address!");
+    } else {
+      const shippingAddress = {
+        address1,
+        address2,
+        zipCode,
+        country,
+        city,
+      };
 
-    const orderData = {
-      cart,
-      totalPrice,
-      subTotalPrice,
-      shipping,
-      discountPrice,
-      shippingAddress,
-      user,
+      const orderData = {
+        cart,
+        totalPrice,
+        subTotalPrice,
+        shipping,
+        discountPrice,
+        shippingAddress,
+        user,
+      };
+
+      // update local storage with the updated orders array
+      localStorage.setItem("latestOrder", JSON.stringify(orderData));
+      navigate("/payment");
     }
-
-    // update local storage with the updated orders array
-    localStorage.setItem("latestOrder", JSON.stringify(orderData));
-    navigate("/payment");
-   }
   };
 
   const subTotalPrice = cart.reduce(
@@ -136,8 +142,7 @@ const Checkout = () => {
       </div>
       <div
         className={`${styles.button} w-[150px] 800px:w-[280px] mt-10`}
-        onClick={paymentSubmit}
-      >
+        onClick={paymentSubmit}>
         <h5 className="text-white">Go to Payment</h5>
       </div>
     </div>
@@ -213,8 +218,7 @@ const ShippingInfo = ({
             <select
               className="w-[95%] border h-[40px] rounded-[5px]"
               value={country}
-              onChange={(e) => setCountry(e.target.value)}
-            >
+              onChange={(e) => setCountry(e.target.value)}>
               <option className="block pb-2" value="">
                 Choose your country
               </option>
@@ -231,8 +235,7 @@ const ShippingInfo = ({
             <select
               className="w-[95%] border h-[40px] rounded-[5px]"
               value={city}
-              onChange={(e) => setCity(e.target.value)}
-            >
+              onChange={(e) => setCity(e.target.value)}>
               <option className="block pb-2" value="">
                 Choose your City
               </option>
@@ -273,8 +276,7 @@ const ShippingInfo = ({
       </form>
       <h5
         className="text-[18px] cursor-pointer inline-block"
-        onClick={() => setUserInfo(!userInfo)}
-      >
+        onClick={() => setUserInfo(!userInfo)}>
         Choose From saved address
       </h5>
       {userInfo && (
@@ -313,7 +315,7 @@ const CartData = ({
   discountPercentenge,
 }) => {
   return (
-    <div className="w-full bg-[#fff] rounded-md p-5 pb-8">
+    <div className="w-full bg-white rounded-md p-5 pb-8">
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">subtotal:</h3>
         <h5 className="text-[18px] font-[600]">${subTotalPrice}</h5>

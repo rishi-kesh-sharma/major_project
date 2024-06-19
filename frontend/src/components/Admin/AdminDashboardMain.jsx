@@ -90,7 +90,7 @@ const AdminDashboardMain = () => {
             <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-secondary shadow rounded px-2 py-5">
               <div className="flex items-center">
                 <AiOutlineMoneyCollect
-                  size={30}
+                  size={20}
                   className="mr-2"
                   fill="#00000085"
                 />
@@ -106,7 +106,7 @@ const AdminDashboardMain = () => {
 
             <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-secondary shadow rounded px-2 py-5">
               <div className="flex items-center">
-                <MdBorderClear size={30} className="mr-2" fill="#00000085" />
+                <MdBorderClear size={20} className="mr-2" fill="#00000085" />
                 <h3
                   className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-secondary-foreground`}>
                   All Sellers
@@ -123,7 +123,7 @@ const AdminDashboardMain = () => {
             <div className="w-full mb-4 800px:w-[30%] min-h-[20vh] bg-secondary shadow rounded px-2 py-5">
               <div className="flex items-center">
                 <AiOutlineMoneyCollect
-                  size={30}
+                  size={20}
                   className="mr-2"
                   fill="#00000085"
                 />
@@ -143,7 +143,7 @@ const AdminDashboardMain = () => {
 
           <br />
           <h3 className="text-[22px] font-Poppins pb-2">Latest Orders</h3>
-          <div className="w-full min-h-[45vh] bg-white rounded">
+          <div className="w-full min-h-[45vh] bg-secondary rounded">
             <DataGrid
               rows={row}
               columns={columns}

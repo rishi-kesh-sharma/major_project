@@ -53,6 +53,7 @@ module.exports = {
           },
         },
         secondary: {
+          foreground: colors.gray["700"],
           DEFAULT: {
             DEFAULT: colors.gray["50"],
             foreground: colors.gray["700"],

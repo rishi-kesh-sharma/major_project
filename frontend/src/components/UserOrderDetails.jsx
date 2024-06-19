@@ -70,7 +70,7 @@ const UserOrderDetails = () => {
     <div className={`py-4 min-h-screen ${styles.section}`}>
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center">
-          <BsFillBagFill size={30} color="crimson" />
+          <BsFillBagFill size={20} color="crimson" />
           <h1 className="pl-2 text-[25px]">Order Details</h1>
         </div>
       </div>
@@ -104,7 +104,7 @@ const UserOrderDetails = () => {
               </div>
               {!item.isReviewed && data?.status === "Delivered" ? (
                 <div
-                  className={`${styles.button} text-[#fff]`}
+                  className={`${styles.button} text-white`}
                   onClick={() => setOpen(true) || setSelectedItem(item)}>
                   Write a review
                 </div>
@@ -119,7 +119,7 @@ const UserOrderDetails = () => {
           <div className="w-[50%] h-min bg-secondary shadow rounded-md p-3">
             <div className="w-full flex justify-end p-3">
               <RxCross1
-                size={30}
+                size={20}
                 onClick={() => setOpen(false)}
                 className="cursor-pointer"
               />
@@ -156,7 +156,7 @@ const UserOrderDetails = () => {
                     key={i}
                     className="mr-1 cursor-pointer"
                     color="rgb(246,186,0)"
-                    size={25}
+                    size={20}
                     onClick={() => setRating(i)}
                   />
                 ) : (
@@ -164,7 +164,7 @@ const UserOrderDetails = () => {
                     key={i}
                     className="mr-1 cursor-pointer"
                     color="rgb(246,186,0)"
-                    size={25}
+                    size={20}
                     onClick={() => setRating(i)}
                   />
                 )

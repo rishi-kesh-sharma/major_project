@@ -13,7 +13,7 @@ const ENDPOINT = "https://socket-ecommerce-tu68.onrender.com/";
 const socketId = socketIO(ENDPOINT, { transports: ["websocket"] });
 
 const UserInbox = () => {
-  const { user,loading } = useSelector((state) => state.user);
+  const { user, loading } = useSelector((state) => state.user);
   const [conversations, setConversations] = useState([]);
   const [arrivalMessage, setArrivalMessage] = useState(null);
   const [currentChat, setCurrentChat] = useState();
@@ -161,7 +161,6 @@ const UserInbox = () => {
   };
 
   const imageSendingHandler = async (e) => {
-
     const receiverId = currentChat.members.find(
       (member) => member !== user._id
     );
@@ -174,15 +173,12 @@ const UserInbox = () => {
 
     try {
       await axios
-        .post(
-          `${server}/message/create-new-message`,
-          {
-            images: e,
-            sender: user._id,
-            text: newMessage,
-            conversationId: currentChat._id,
-          }
-        )
+        .post(`${server}/message/create-new-message`, {
+          images: e,
+          sender: user._id,
+          text: newMessage,
+          conversationId: currentChat._id,
+        })
         .then((res) => {
           setImages();
           setMessages([...messages, res.data.message]);
@@ -263,7 +259,7 @@ const MessageList = ({
   userData,
   online,
   setActiveStatus,
-  loading
+  loading,
 }) => {
   const [active, setActive] = useState(0);
   const [user, setUser] = useState([]);
@@ -290,7 +286,7 @@ const MessageList = ({
   return (
     <div
       className={`w-full flex p-3 px-3 ${
-        active === index ? "bg-[#00000010]" : "bg-transparent"
+        active === index ? "bg-gray-700" : "bg-transparent"
       }  cursor-pointer`}
       onClick={(e) =>
         setActive(index) ||
@@ -298,8 +294,7 @@ const MessageList = ({
         setCurrentChat(data) ||
         setUserData(user) ||
         setActiveStatus(online)
-      }
-    >
+      }>
       <div className="relative">
         <img
           src={`${user?.avatar?.url}`}
@@ -307,9 +302,9 @@ const MessageList = ({
           className="w-[50px] h-[50px] rounded-full"
         />
         {online ? (
-          <div className="w-[12px] h-[12px] bg-green-400 rounded-full absolute top-[2px] right-[2px]" />
+          <div className="w-[12px] h-[12px] bg-primary rounded-full absolute top-[2px] right-[2px]" />
         ) : (
-          <div className="w-[12px] h-[12px] bg-[#c7b9b9] rounded-full absolute top-[2px] right-[2px]" />
+          <div className="w-[12px] h-[12px] bg-secondary-dark rounded-full absolute top-[2px] right-[2px]" />
         )}
       </div>
       <div className="pl-3">
@@ -367,8 +362,7 @@ const SellerInbox = ({
               className={`flex w-full my-2 ${
                 item.sender === sellerId ? "justify-end" : "justify-start"
               }`}
-              ref={scrollRef}
-            >
+              ref={scrollRef}>
               {item.sender !== sellerId && (
                 <img
                   src={`${userData?.avatar?.url}`}
@@ -378,6 +372,7 @@ const SellerInbox = ({
               )}
               {item.images && (
                 <img
+                  alt={item.images?.url}
                   src={`${item.images?.url}`}
                   className="w-[300px] h-[300px] object-cover rounded-[10px] ml-2 mb-2"
                 />
@@ -386,9 +381,8 @@ const SellerInbox = ({
                 <div>
                   <div
                     className={`w-max p-2 rounded ${
-                      item.sender === sellerId ? "bg-[#000]" : "bg-[#38c776]"
-                    } text-[#fff] h-min`}
-                  >
+                      item.sender === sellerId ? "bg-black" : "bg-primary"
+                    } text-white h-min`}>
                     <p>{item.text}</p>
                   </div>
 
@@ -405,8 +399,7 @@ const SellerInbox = ({
       <form
         aria-required={true}
         className="p-3 relative w-full flex justify-between items-center"
-        onSubmit={sendMessageHandler}
-      >
+        onSubmit={sendMessageHandler}>
         <div className="w-[30px]">
           <input
             type="file"

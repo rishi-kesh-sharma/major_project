@@ -26,25 +26,25 @@ const Faq = () => {
 
   return (
     <div className={`${styles.section} my-8`}>
-      <h2 className="text-3xl font-bold text-gray-900 mb-8">FAQ</h2>
-      <div className="mx-auto space-y-4">
+      <h2 className="text-3xl font-semibold  text-secondary-foreground mb-8">
+        FAQ
+      </h2>
+      <div className="mx-auto  bg-white rounded-lg">
         {/* single Faq */}
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="border-b border-gray-200 p-4">
           <button
             className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(2)}
-          >
-            <span className="text-lg font-medium text-gray-900">
+            onClick={() => toggleTab(2)}>
+            <span className="text-base  text-secondary-foreground">
               What is your return policy?
             </span>
             {activeTab === 2 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -54,11 +54,10 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -69,8 +68,8 @@ const Faq = () => {
             )}
           </button>
           {activeTab === 2 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
+            <div className="">
+              <p className="text-sm text-secondary-foreground/80 mt-3 px-3">
                 If you're not satisfied with your purchase, we accept returns
                 within 30 days of delivery. To initiate a return, please email
                 us at support@myecommercestore.com with your order number and a
@@ -80,21 +79,19 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="border-b border-gray-200 p-4">
           <button
             className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(3)}
-          >
-            <span className="text-lg font-medium text-gray-900">
+            onClick={() => toggleTab(3)}>
+            <span className="text-base text-secondary-foreground">
               How do I track my order?
             </span>
             {activeTab === 3 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -104,11 +101,10 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -119,8 +115,8 @@ const Faq = () => {
             )}
           </button>
           {activeTab === 3 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
+            <div className="">
+              <p className="text-sm text-secondary-foreground/80 mt-3 px-3">
                 You can track your order by clicking the tracking link in your
                 shipping confirmation email, or by logging into your account on
                 our website and viewing the order details.
@@ -129,21 +125,19 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="border-b border-gray-200 p-4">
           <button
             className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(4)}
-          >
-            <span className="text-lg font-medium text-gray-900">
+            onClick={() => toggleTab(4)}>
+            <span className="text-base text-secondary-foreground">
               How do I contact customer support?
             </span>
             {activeTab === 4 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -153,11 +147,10 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -168,8 +161,8 @@ const Faq = () => {
             )}
           </button>
           {activeTab === 4 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
+            <div className="">
+              <p className="text-sm text-secondary-foreground/80 mt-3 px-3">
                 You can contact our customer support team by emailing us at
                 support@myecommercestore.com, or by calling us at (555) 123-4567
                 between the hours of 9am and 5pm EST, Monday through Friday.
@@ -178,21 +171,19 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="border-b border-gray-200 p-4">
           <button
             className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(5)}
-          >
-            <span className="text-lg font-medium text-gray-900">
+            onClick={() => toggleTab(5)}>
+            <span className="text-base text-secondary-foreground">
               Can I change or cancel my order?
             </span>
             {activeTab === 5 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -202,11 +193,10 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -217,8 +207,8 @@ const Faq = () => {
             )}
           </button>
           {activeTab === 5 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
+            <div className="">
+              <p className="text-sm text-secondary-foreground/80 mt-3 px-3">
                 Unfortunately, once an order has been placed, we are not able to
                 make changes or cancellations. If you no longer want the items
                 you've ordered, you can return them for a refund within 30 days
@@ -228,21 +218,19 @@ const Faq = () => {
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="border-b border-gray-200 p-4">
           <button
             className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(6)}
-          >
-            <span className="text-lg font-medium text-gray-900">
+            onClick={() => toggleTab(6)}>
+            <span className="text-base text-secondary-foreground">
               Do you offer international shipping?
             </span>
             {activeTab === 6 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -252,11 +240,10 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -267,29 +254,27 @@ const Faq = () => {
             )}
           </button>
           {activeTab === 6 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
+            <div className="">
+              <p className="text-sm text-secondary-foreground/80 mt-3 px-3">
                 Currently, we only offer shipping within the United States.
               </p>
             </div>
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        <div className="border-b border-gray-200 p-4">
           <button
             className="flex items-center justify-between w-full"
-            onClick={() => toggleTab(7)}
-          >
-            <span className="text-lg font-medium text-gray-900">
+            onClick={() => toggleTab(7)}>
+            <span className="text-base text-secondary-foreground">
               What payment methods do you accept?
             </span>
             {activeTab === 7 ? (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -299,11 +284,10 @@ const Faq = () => {
               </svg>
             ) : (
               <svg
-                className="h-6 w-6 text-gray-500"
+                className="h-4 w-4 text-secondary-foreground"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+                stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -314,8 +298,8 @@ const Faq = () => {
             )}
           </button>
           {activeTab === 7 && (
-            <div className="mt-4">
-              <p className="text-base text-gray-500">
+            <div className="">
+              <p className="text-sm text-secondary-foreground/80 mt-3 px-3">
                 We accept visa,mastercard,paypal payment method also we have
                 cash on delivery system.
               </p>

@@ -109,21 +109,19 @@ const WithdrawMoney = () => {
         </h5>
         <div
           className={`${styles.button} text-white !h-[42px] !rounded`}
-          onClick={() => (availableBalance < 50 ? error() : setOpen(true))}
-        >
+          onClick={() => (availableBalance < 50 ? error() : setOpen(true))}>
           Withdraw
         </div>
       </div>
       {open && (
-        <div className="w-full h-screen z-[9999] fixed top-0 left-0 flex items-center justify-center bg-[#0000004e]">
+        <div className="w-full h-screen z-[9999] fixed top-0 left-0 flex items-center justify-center bg-secondary-foreground">
           <div
             className={`w-[95%] 800px:w-[50%] bg-white shadow rounded ${
               paymentMethod ? "h-[80vh] overflow-y-scroll" : "h-[unset]"
-            } min-h-[40vh] p-3`}
-          >
+            } min-h-[40vh] p-3`}>
             <div className="w-full flex justify-end">
               <RxCross1
-                size={25}
+                size={20}
                 onClick={() => setOpen(false) || setPaymentMethod(false)}
                 className="cursor-pointer"
               />
@@ -257,8 +255,7 @@ const WithdrawMoney = () => {
 
                   <button
                     type="submit"
-                    className={`${styles.button} mb-3 text-white`}
-                  >
+                    className={`${styles.button} mb-3 text-white`}>
                     Add
                   </button>
                 </form>
@@ -284,7 +281,7 @@ const WithdrawMoney = () => {
                       </div>
                       <div className="800px:w-[50%]">
                         <AiOutlineDelete
-                          size={25}
+                          size={20}
                           className="cursor-pointer"
                           onClick={() => deleteHandler()}
                         />
@@ -303,8 +300,7 @@ const WithdrawMoney = () => {
                       />
                       <div
                         className={`${styles.button} !h-[42px] text-white`}
-                        onClick={withdrawHandler}
-                      >
+                        onClick={withdrawHandler}>
                         Withdraw
                       </div>
                     </div>
@@ -316,9 +312,8 @@ const WithdrawMoney = () => {
                     </p>
                     <div className="w-full flex items-center">
                       <div
-                        className={`${styles.button} text-[#fff] text-[18px] mt-4`}
-                        onClick={() => setPaymentMethod(true)}
-                      >
+                        className={`${styles.button} text-white text-[18px] mt-4`}
+                        onClick={() => setPaymentMethod(true)}>
                         Add new
                       </div>
                     </div>

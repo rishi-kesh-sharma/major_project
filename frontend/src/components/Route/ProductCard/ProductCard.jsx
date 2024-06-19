@@ -136,7 +136,7 @@ const ProductCard = ({ data, isEvent }) => {
             title="Quick view"
           />
           <AiOutlineShoppingCart
-            size={25}
+            size={20}
             className="cursor-pointer absolute right-2 top-24"
             onClick={() => addToCartHandler(data._id)}
             color="#444"

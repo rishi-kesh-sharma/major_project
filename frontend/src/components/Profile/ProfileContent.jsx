@@ -88,7 +88,7 @@ const ProfileContent = ({ active }) => {
                 className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-[#3ad132]"
                 alt=""
               />
-              <div className="w-[30px] h-[30px] bg-[#E3E9EE] rounded-full flex items-center justify-center cursor-pointer absolute bottom-[5px] right-[5px]">
+              <div className="w-[30px] h-[30px] bg-secondary rounded-full flex items-center justify-center cursor-pointer absolute bottom-[5px] right-[5px]">
                 <input
                   type="file"
                   id="image"
@@ -491,8 +491,7 @@ const ChangePassword = () => {
         <form
           aria-required
           onSubmit={passwordChangeHandler}
-          className="flex flex-col items-center"
-        >
+          className="flex flex-col items-center">
           <div className=" w-[100%] 800px:w-[50%] mt-5">
             <label className="block pb-2">Enter your old password</label>
             <input
@@ -592,11 +591,11 @@ const Address = () => {
   return (
     <div className="w-full px-5">
       {open && (
-        <div className="fixed w-full h-screen bg-[#0000004b] top-0 left-0 flex items-center justify-center ">
+        <div className="fixed w-full h-screen bg-secondary-foreground top-0 left-0 flex items-center justify-center ">
           <div className="w-[35%] h-[80vh] bg-white rounded shadow relative overflow-y-scroll">
             <div className="w-full flex justify-end p-3">
               <RxCross1
-                size={30}
+                size={20}
                 className="cursor-pointer"
                 onClick={() => setOpen(false)}
               />
@@ -605,7 +604,7 @@ const Address = () => {
               Add New Address
             </h1>
             <div className="w-full">
-              <form aria-required onSubmit={handleSubmit} className="w-full">
+              <form onSubmit={handleSubmit} className="w-full">
                 <div className="w-full block p-4">
                   <div className="w-full pb-2">
                     <label className="block pb-2">Country</label>
@@ -614,8 +613,7 @@ const Address = () => {
                       id=""
                       value={country}
                       onChange={(e) => setCountry(e.target.value)}
-                      className="w-[95%] border h-[40px] rounded-[5px]"
-                    >
+                      className="w-[95%] border h-[40px] rounded-[5px]">
                       <option value="" className="block border pb-2">
                         choose your country
                       </option>
@@ -624,8 +622,7 @@ const Address = () => {
                           <option
                             className="block pb-2"
                             key={item.isoCode}
-                            value={item.isoCode}
-                          >
+                            value={item.isoCode}>
                             {item.name}
                           </option>
                         ))}
@@ -639,8 +636,7 @@ const Address = () => {
                       id=""
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="w-[95%] border h-[40px] rounded-[5px]"
-                    >
+                      className="w-[95%] border h-[40px] rounded-[5px]">
                       <option value="" className="block border pb-2">
                         choose your city
                       </option>
@@ -649,8 +645,7 @@ const Address = () => {
                           <option
                             className="block pb-2"
                             key={item.isoCode}
-                            value={item.isoCode}
-                          >
+                            value={item.isoCode}>
                             {item.name}
                           </option>
                         ))}
@@ -696,8 +691,7 @@ const Address = () => {
                       id=""
                       value={addressType}
                       onChange={(e) => setAddressType(e.target.value)}
-                      className="w-[95%] border h-[40px] rounded-[5px]"
-                    >
+                      className="w-[95%] border h-[40px] rounded-[5px]">
                       <option value="" className="block border pb-2">
                         Choose your Address Type
                       </option>
@@ -706,8 +700,7 @@ const Address = () => {
                           <option
                             className="block pb-2"
                             key={item.name}
-                            value={item.name}
-                          >
+                            value={item.name}>
                             {item.name}
                           </option>
                         ))}
@@ -734,9 +727,8 @@ const Address = () => {
         </h1>
         <div
           className={`${styles.button} !rounded-md`}
-          onClick={() => setOpen(true)}
-        >
-          <span className="text-[#fff]">Add New</span>
+          onClick={() => setOpen(true)}>
+          <span className="text-white">Add New</span>
         </div>
       </div>
       <br />
@@ -744,8 +736,7 @@ const Address = () => {
         user.addresses.map((item, index) => (
           <div
             className="w-full bg-white h-min 800px:h-[70px] rounded-[4px] flex items-center px-3 shadow justify-between pr-10 mb-5"
-            key={index}
-          >
+            key={index}>
             <div className="flex items-center">
               <h5 className="pl-5 font-[600]">{item.addressType}</h5>
             </div>
@@ -761,7 +752,7 @@ const Address = () => {
             </div>
             <div className="min-w-[10%] flex items-center justify-between pl-8">
               <AiOutlineDelete
-                size={25}
+                size={20}
                 className="cursor-pointer"
                 onClick={() => handleDelete(item)}
               />

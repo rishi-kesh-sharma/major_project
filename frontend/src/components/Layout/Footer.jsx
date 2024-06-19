@@ -29,7 +29,7 @@ const Footer = () => {
             className="text-gray-800
                 sm:w-72 w-full sm:mr-5 mr-1 lg:mb-0 mb-4 py-2.5 rounded px-2 focus:outline-none"
           />
-          <button className="bg-[#56d879] hover:bg-teal-500 duration-300 px-5 py-2.5 rounded-md text-whie md:w-auto w-full">
+          <button className="bg-[#56d879] hover:bg-primary-500 duration-300 px-5 py-2.5 rounded-md text-whie md:w-auto w-full">
             Submit
           </button>
         </div>
@@ -46,17 +46,17 @@ const Footer = () => {
             The home and elements needed to create beautiful products.
           </p>
           <div className="flex items-center mt-[15px]">
-            <AiFillFacebook size={25} className="cursor-pointer" />
+            <AiFillFacebook size={20} className="cursor-pointer" />
             <AiOutlineTwitter
-              size={25}
+              size={20}
               style={{ marginLeft: "15px", cursor: "pointer" }}
             />
             <AiFillInstagram
-              size={25}
+              size={20}
               style={{ marginLeft: "15px", cursor: "pointer" }}
             />
             <AiFillYoutube
-              size={25}
+              size={20}
               style={{ marginLeft: "15px", cursor: "pointer" }}
             />
           </div>

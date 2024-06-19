@@ -113,8 +113,7 @@ const CreateProduct = () => {
             value={description}
             className="mt-2 appearance-none block w-full pt-2 px-3 border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Enter your product description..."
-          ></textarea>
+            placeholder="Enter your product description..."></textarea>
         </div>
         <br />
         <div>
@@ -124,8 +123,7 @@ const CreateProduct = () => {
           <select
             className="w-full mt-2 border h-[35px] rounded-[5px]"
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          >
+            onChange={(e) => setCategory(e.target.value)}>
             <option value="Choose a category">Choose a category</option>
             {categoriesData &&
               categoriesData.map((i) => (
@@ -202,7 +200,7 @@ const CreateProduct = () => {
           />
           <div className="w-full flex items-center flex-wrap">
             <label htmlFor="upload">
-              <AiOutlinePlusCircle size={30} className="mt-3" color="#555" />
+              <AiOutlinePlusCircle size={20} className="mt-3" color="#555" />
             </label>
             {images &&
               images.map((i) => (

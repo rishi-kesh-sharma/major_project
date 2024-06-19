@@ -14,7 +14,7 @@ const AllCoupons = () => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [coupouns,setCoupouns] = useState([]);
+  const [coupouns, setCoupouns] = useState([]);
   const [minAmount, setMinAmout] = useState(null);
   const [maxAmount, setMaxAmount] = useState(null);
   const [selectedProducts, setSelectedProducts] = useState(null);
@@ -40,9 +40,11 @@ const AllCoupons = () => {
   }, [dispatch]);
 
   const handleDelete = async (id) => {
-    axios.delete(`${server}/coupon/delete-coupon/${id}`,{withCredentials: true}).then((res) => {
-      toast.success("Coupon code deleted succesfully!")
-    })
+    axios
+      .delete(`${server}/coupon/delete-coupon/${id}`, { withCredentials: true })
+      .then((res) => {
+        toast.success("Coupon code deleted succesfully!");
+      });
     window.location.reload();
   };
 
@@ -63,9 +65,9 @@ const AllCoupons = () => {
         { withCredentials: true }
       )
       .then((res) => {
-       toast.success("Coupon code created successfully!");
-       setOpen(false);
-       window.location.reload();
+        toast.success("Coupon code created successfully!");
+        setOpen(false);
+        window.location.reload();
       })
       .catch((error) => {
         toast.error(error.response.data.message);
@@ -108,7 +110,7 @@ const AllCoupons = () => {
   const row = [];
 
   coupouns &&
-  coupouns.forEach((item) => {
+    coupouns.forEach((item) => {
       row.push({
         id: item._id,
         name: item.name,
@@ -122,13 +124,14 @@ const AllCoupons = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="w-full mx-8 pt-1 mt-10 bg-white">
+        <div className="w-full mx-8 pt-1 mt-10 bg-secondary">
           <div className="w-full flex justify-end">
             <div
               className={`${styles.button} !w-max !h-[45px] px-3 !rounded-[5px] mr-3 mb-3`}
-              onClick={() => setOpen(true)}
-            >
-              <span className="text-white">Create Coupon Code</span>
+              onClick={() => setOpen(true)}>
+              <span className="text-secondary-foreground">
+                Create Coupon Code
+              </span>
             </div>
           </div>
           <DataGrid
@@ -139,11 +142,11 @@ const AllCoupons = () => {
             autoHeight
           />
           {open && (
-            <div className="fixed top-0 left-0 w-full h-screen bg-[#00000062] z-[20000] flex items-center justify-center">
-              <div className="w-[90%] 800px:w-[40%] h-[80vh] bg-white rounded-md shadow p-4">
+            <div className="fixed top-0 left-0 w-full h-screen bg-black z-[20000] flex items-center justify-center">
+              <div className="w-[90%] 800px:w-[40%] h-[80vh] bg-secondary rounded-md shadow p-4">
                 <div className="w-full flex justify-end">
                   <RxCross1
-                    size={30}
+                    size={20}
                     className="cursor-pointer"
                     onClick={() => setOpen(false)}
                   />
@@ -214,8 +217,7 @@ const AllCoupons = () => {
                     <select
                       className="w-full mt-2 border h-[35px] rounded-[5px]"
                       value={selectedProducts}
-                      onChange={(e) => setSelectedProducts(e.target.value)}
-                    >
+                      onChange={(e) => setSelectedProducts(e.target.value)}>
                       <option value="Choose your selected products">
                         Choose a selected product
                       </option>
