@@ -15,11 +15,10 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 app.use("/test", (req, res) => {
-  res.send("Hello world!");
+  res.send("Test successful !!");
 });
 
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
-
 // config
 if (process.env.NODE_ENV !== "PRODUCTION") {
   require("dotenv").config({
