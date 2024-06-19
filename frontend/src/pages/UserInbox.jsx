@@ -45,14 +45,14 @@ const UserInbox = () => {
   useEffect(() => {
     const getConversation = async () => {
       try {
-        const resonse = await axios.get(
+        const response = await axios.get(
           `${server}/conversation/get-all-conversation-user/${user?._id}`,
           {
             withCredentials: true,
           }
         );
 
-        setConversations(resonse.data.conversations);
+        setConversations(response.data.conversations);
       } catch (error) {
         // console.log(error);
       }
@@ -281,12 +281,12 @@ const MessageList = ({
       }
     };
     getUser();
-  }, [me, data]);
+  }, [me, data, setActiveStatus, online]);
 
   return (
     <div
       className={`w-full flex p-3 px-3 ${
-        active === index ? "bg-gray-700" : "bg-transparent"
+        active === index ? "bg-white" : "bg-transparent"
       }  cursor-pointer`}
       onClick={(e) =>
         setActive(index) ||
@@ -335,21 +335,21 @@ const SellerInbox = ({
   return (
     <div className="w-[full] min-h-full flex flex-col justify-between p-5">
       {/* message header */}
-      <div className="w-full flex p-3 items-center justify-between bg-slate-200">
+      <div className="w-full flex p-3 items-center justify-between rounded-lg bg-slate-200">
         <div className="flex">
           <img
             src={`${userData?.avatar?.url}`}
             alt=""
             className="w-[60px] h-[60px] rounded-full"
           />
-          <div className="pl-3">
+          <div className="pl-3 flex items-center">
             <h1 className="text-[18px] font-[600]">{userData?.name}</h1>
             <h1>{activeStatus ? "Active Now" : ""}</h1>
           </div>
         </div>
         <AiOutlineArrowRight
           size={20}
-          className="cursor-pointer"
+          className="cursor-pointer "
           onClick={() => setOpen(false)}
         />
       </div>
@@ -397,7 +397,6 @@ const SellerInbox = ({
 
       {/* send message input */}
       <form
-        aria-required={true}
         className="p-3 relative w-full flex justify-between items-center"
         onSubmit={sendMessageHandler}>
         <div className="w-[30px]">
@@ -419,13 +418,13 @@ const SellerInbox = ({
             placeholder="Enter your message..."
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
-            className={`${styles.input}`}
+            className={`${styles.input} h-[60px] rounded-xl`}
           />
           <input type="submit" value="Send" className="hidden" id="send" />
           <label htmlFor="send">
             <AiOutlineSend
-              size={20}
-              className="absolute right-4 top-5 cursor-pointer"
+              size={30}
+              className="absolute right-6 top-[50%] translate-y-[-50%] cursor-pointer"
             />
           </label>
         </div>

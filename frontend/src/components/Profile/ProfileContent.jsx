@@ -42,7 +42,7 @@ const ProfileContent = ({ active }) => {
       toast.success(successMessage);
       dispatch({ type: "clearMessages" });
     }
-  }, [error, successMessage]);
+  }, [dispatch, error, successMessage]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -77,7 +77,7 @@ const ProfileContent = ({ active }) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-white p-4">
       {/* profile */}
       {active === 1 && (
         <>
@@ -104,23 +104,23 @@ const ProfileContent = ({ active }) => {
           <br />
           <br />
           <div className="w-full px-5">
-            <form onSubmit={handleSubmit} aria-required={true}>
-              <div className="w-full 800px:flex block pb-3">
-                <div className=" w-[100%] 800px:w-[50%]">
+            <form onSubmit={handleSubmit}>
+              <div className="w-full 800px:flex block pb-6">
+                <div className=" w-[100%] ">
                   <label className="block pb-2">Full Name</label>
                   <input
                     type="text"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                    className={`${styles.input} !w-[90%] mb-4 800px:mb-0`}
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
                 </div>
-                <div className=" w-[100%] 800px:w-[50%]">
+                <div className=" w-[100%] ">
                   <label className="block pb-2">Email Address</label>
                   <input
                     type="text"
-                    className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
+                    className={`${styles.input} !w-[90%] mb-1 800px:mb-0`}
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -128,23 +128,23 @@ const ProfileContent = ({ active }) => {
                 </div>
               </div>
 
-              <div className="w-full 800px:flex block pb-3">
-                <div className=" w-[100%] 800px:w-[50%]">
+              <div className="w-full 800px:flex block pb-6">
+                <div className=" w-[100%] ">
                   <label className="block pb-2">Phone Number</label>
                   <input
                     type="number"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                    className={`${styles.input} !w-[90%] mb-4 800px:mb-0`}
                     required
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                   />
                 </div>
 
-                <div className=" w-[100%] 800px:w-[50%]">
+                <div className=" w-[100%] ">
                   <label className="block pb-2">Enter your password</label>
                   <input
                     type="password"
-                    className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+                    className={`${styles.input} !w-[90%] mb-4 800px:mb-0`}
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
@@ -152,7 +152,7 @@ const ProfileContent = ({ active }) => {
                 </div>
               </div>
               <input
-                className={`w-[250px] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
+                className={`w-[180px] h-[40px] border border-primary text-center text-primary rounded-[3px]  cursor-pointer`}
                 required
                 value="Update"
                 type="submit"
@@ -273,7 +273,7 @@ const AllOrders = () => {
     });
 
   return (
-    <div className="pl-8 pt-1">
+    <div className="p-4 rounded-lg">
       <DataGrid
         rows={row}
         columns={columns}
@@ -361,7 +361,7 @@ const AllRefundOrders = () => {
     });
 
   return (
-    <div className="pl-8 pt-1">
+    <div className="p-4">
       <DataGrid
         rows={row}
         columns={columns}
@@ -446,7 +446,7 @@ const TrackOrder = () => {
     });
 
   return (
-    <div className="pl-8 pt-1">
+    <div className="p-4">
       <DataGrid
         rows={row}
         columns={columns}
@@ -483,46 +483,45 @@ const ChangePassword = () => {
       });
   };
   return (
-    <div className="w-full px-5">
-      <h1 className="block text-[25px] text-center font-[600] text-[#000000ba] pb-2">
+    <div className="w-full p-4">
+      <h1 className="block text-2xl  font-[600] text-[#000000ba] pb-2">
         Change Password
       </h1>
       <div className="w-full">
         <form
-          aria-required
           onSubmit={passwordChangeHandler}
           className="flex flex-col items-center">
-          <div className=" w-[100%] 800px:w-[50%] mt-5">
+          <div className=" w-[100%]  mt-5">
             <label className="block pb-2">Enter your old password</label>
             <input
               type="password"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} mb-4 800px:mb-0`}
               required
               value={oldPassword}
               onChange={(e) => setOldPassword(e.target.value)}
             />
           </div>
-          <div className=" w-[100%] 800px:w-[50%] mt-2">
+          <div className=" w-[100%]  mt-2">
             <label className="block pb-2">Enter your new password</label>
             <input
               type="password"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} mb-4 800px:mb-0`}
               required
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
             />
           </div>
-          <div className=" w-[100%] 800px:w-[50%] mt-2">
+          <div className=" w-[100%]  mt-2">
             <label className="block pb-2">Enter your confirm password</label>
             <input
               type="password"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} mb-4 800px:mb-0`}
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
             <input
-              className={`w-[95%] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
+              className={`w-[180px] h-[40px] border border-primary text-center text-primary rounded-[3px]  cursor-pointer`}
               required
               value="Update"
               type="submit"
@@ -589,31 +588,30 @@ const Address = () => {
   };
 
   return (
-    <div className="w-full px-5">
+    <div className="w-full ">
       {open && (
-        <div className="fixed w-full h-screen bg-secondary-foreground top-0 left-0 flex items-center justify-center ">
-          <div className="w-[35%] h-[80vh] bg-white rounded shadow relative overflow-y-scroll">
+        <div className="fixed w-full h-screen bg-black/70 top-6 left-6 flex items-center justify-center z-[100] ">
+          <div className="w-[50%] h-[80vh] bg-white rounded-xl shadow relative overflow-y-auto p-6">
             <div className="w-full flex justify-end p-3">
               <RxCross1
                 size={20}
+                color="red"
                 className="cursor-pointer"
                 onClick={() => setOpen(false)}
               />
             </div>
-            <h1 className="text-center text-[25px] font-Poppins">
-              Add New Address
-            </h1>
+            <h1 className="text-xl font-[500] ">Add New Address</h1>
             <div className="w-full">
               <form onSubmit={handleSubmit} className="w-full">
-                <div className="w-full block p-4">
-                  <div className="w-full pb-2">
+                <div className="w-full block py-4">
+                  <div className="w-full pb-6">
                     <label className="block pb-2">Country</label>
                     <select
                       name=""
                       id=""
                       value={country}
                       onChange={(e) => setCountry(e.target.value)}
-                      className="w-[95%] border h-[40px] rounded-[5px]">
+                      className={`${styles.input} w-[95%] border h`}>
                       <option value="" className="block border pb-2">
                         choose your country
                       </option>
@@ -629,14 +627,14 @@ const Address = () => {
                     </select>
                   </div>
 
-                  <div className="w-full pb-2">
+                  <div className="w-full pb-6">
                     <label className="block pb-2">Choose your City</label>
                     <select
                       name=""
                       id=""
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
-                      className="w-[95%] border h-[40px] rounded-[5px]">
+                      className={`${styles.input} w-[95%] border h`}>
                       <option value="" className="block border pb-2">
                         choose your city
                       </option>
@@ -652,7 +650,7 @@ const Address = () => {
                     </select>
                   </div>
 
-                  <div className="w-full pb-2">
+                  <div className="w-full pb-6">
                     <label className="block pb-2">Address 1</label>
                     <input
                       type="address"
@@ -662,7 +660,7 @@ const Address = () => {
                       onChange={(e) => setAddress1(e.target.value)}
                     />
                   </div>
-                  <div className="w-full pb-2">
+                  <div className="w-full pb-6">
                     <label className="block pb-2">Address 2</label>
                     <input
                       type="address"
@@ -673,7 +671,7 @@ const Address = () => {
                     />
                   </div>
 
-                  <div className="w-full pb-2">
+                  <div className="w-full pb-6">
                     <label className="block pb-2">Zip Code</label>
                     <input
                       type="number"
@@ -684,14 +682,14 @@ const Address = () => {
                     />
                   </div>
 
-                  <div className="w-full pb-2">
+                  <div className="w-full pb-6">
                     <label className="block pb-2">Address Type</label>
                     <select
                       name=""
                       id=""
                       value={addressType}
                       onChange={(e) => setAddressType(e.target.value)}
-                      className="w-[95%] border h-[40px] rounded-[5px]">
+                      className={`${styles.input} w-[95%] border h`}>
                       <option value="" className="block border pb-2">
                         Choose your Address Type
                       </option>
@@ -707,10 +705,10 @@ const Address = () => {
                     </select>
                   </div>
 
-                  <div className=" w-full pb-2">
+                  <div className=" w-full pb-6 flex justify-end mt-3">
                     <input
                       type="submit"
-                      className={`${styles.input} mt-5 cursor-pointer`}
+                      className={`${styles.input} !w-[150px]  cursor-pointer bg-primary !text-primary-foreground `}
                       required
                       readOnly
                     />
