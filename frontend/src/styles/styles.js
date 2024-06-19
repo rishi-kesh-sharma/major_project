@@ -1,12 +1,11 @@
 const styles = {
   custom_container: "w-11/12 hidden sm:block",
-  heading:
-    "text-[27px] text-center md:text-start font-[600] font-Roboto pb-[20px]",
+  heading: "text-[27px] text-center md:text-start font-[600]  pb-[20px]",
   section: "w-11/12 mx-auto",
-  productTitle: "text-[25px] font-[600] font-Roboto text-[#333]",
-  productDiscountPrice: "font-bold text-[18px] text-[#333] font-Roboto",
-  price: "font-[500] text-[16px] text-[#d55b45] pl-3 mt-[-4px] line-through",
-  shop_name: "pt-3 text-[15px] text-blue-400 pb-3",
+  productTitle: "text-lg font-semibold  text-[#333]",
+  productDiscountPrice: "font-bold text-base text-primary ",
+  price: "font-[500] text-base  text-red-600 pl-3  line-through",
+  shop_name: "pt-3 text-[15px] text-primary-lighter pb-3",
   active_indicator: "absolute bottom-[-27%] left-0 h-[3px] w-full bg-[crimson]",
   button:
     "w-[150px] bg-black h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer",

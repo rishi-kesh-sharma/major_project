@@ -14,8 +14,8 @@ import {
 
 const Footer = () => {
   return (
-    <div className="bg-[#000] text-white">
-      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#342ac8] py-7">
+    <div className="bg-primary-darkest text-primary-darkest-foreground">
+      {/* <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#342ac8] py-7">
         <h1 className="lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5">
           <span className="text-[#56d879]">Subscribe</span> us for get news{" "}
           <br />
@@ -33,8 +33,8 @@ const Footer = () => {
             Submit
           </button>
         </div>
-      </div>
-      <div className="grid grid-cols-1 sm:gird-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 py-16 sm:text-center">
+      </div> */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 py-16 sm:text-center">
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
           <img
             src="https://shopo.quomodothemes.website/assets/images/logo.svg"
@@ -42,7 +42,9 @@ const Footer = () => {
             style={{ filter: "brightness(0) invert(1)" }}
           />
           <br />
-          <p>The home and elements needeed to create beatiful products.</p>
+          <p className="text-sm">
+            The home and elements needed to create beautiful products.
+          </p>
           <div className="flex items-center mt-[15px]">
             <AiFillFacebook size={25} className="cursor-pointer" />
             <AiOutlineTwitter
@@ -62,13 +64,12 @@ const Footer = () => {
 
         <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold">Company</h1>
-          {footerProductLinks.map((link,index) => (
+          {footerProductLinks.map((link, index) => (
             <li key={index}>
               <Link
-                className="text-gray-400 hover:text-teal-400 duration-300
-                   text-sm cursor-pointer leading-6"
-                to={link.link}
-              >
+                className="text-primary-darkest-foreground hover:text-gray-300 duration-300
+                   text-xs cursor-pointer leading-6"
+                to={link.link}>
                 {link.name}
               </Link>
             </li>
@@ -77,13 +78,12 @@ const Footer = () => {
 
         <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold">Shop</h1>
-          {footercompanyLinks.map((link,index) => (
+          {footercompanyLinks.map((link, index) => (
             <li key={index}>
               <Link
-                className="text-gray-400 hover:text-teal-400 duration-300
-                   text-sm cursor-pointer leading-6"
-                to={link.link}
-              >
+                className="text-primary-darkest-foreground hover:text-gray-300 duration-300
+                   text-xs cursor-pointer leading-6"
+                to={link.link}>
                 {link.name}
               </Link>
             </li>
@@ -92,13 +92,12 @@ const Footer = () => {
 
         <ul className="text-center sm:text-start">
           <h1 className="mb-1 font-semibold">Support</h1>
-          {footerSupportLinks.map((link,index) => (
+          {footerSupportLinks.map((link, index) => (
             <li key={index}>
               <Link
-                className="text-gray-400 hover:text-teal-400 duration-300
-                   text-sm cursor-pointer leading-6"
-                to={link.link}
-              >
+                className="text-primary-darkest-foreground hover:text-gray-300 duration-300
+                   text-xs cursor-pointer leading-6"
+                to={link.link}>
                 {link.name}
               </Link>
             </li>
@@ -108,16 +107,15 @@ const Footer = () => {
 
       <div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10
-         text-center pt-2 text-gray-400 text-sm pb-8"
-      >
-        <span>© 2020 Becodemy. All rights reserved.</span>
+         text-center pt-2 text-primary-darkest-foreground text-xs pb-8">
+        <span>© 2020 EcoCycleMart. All rights reserved.</span>
         <span>Terms · Privacy Policy</span>
-        <div className="sm:block flex items-center justify-center w-full">
+        {/* <div className="sm:block flex items-center justify-center w-full">
           <img
             src="https://hamart-shop.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffooter-payment.a37c49ac.png&w=640&q=75"
             alt=""
           />
-        </div>
+        </div> */}
       </div>
     </div>
   );
