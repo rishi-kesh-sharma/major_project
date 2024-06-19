@@ -114,7 +114,7 @@ const ProductDetails = ({ data }) => {
   return (
     <div className="bg-white">
       {data ? (
-        <div className={`${styles.section} w-[90%] 800px:w-[80%]`}>
+        <div className={`${styles.section} w-[90%] 800px:w-[80%] `}>
           <div className="w-full py-5">
             <div className="block w-full 800px:flex">
               <div className="w-full 800px:w-[50%]">
@@ -193,9 +193,9 @@ const ProductDetails = ({ data }) => {
                   </div>
                 </div>
                 <div
-                  className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
+                  className={`${styles.button} !mt-6 !rounded !h-11 flex items-center bg-transparent`}
                   onClick={() => addToCartHandler(data._id)}>
-                  <span className="text-white flex items-center">
+                  <span className=" flex items-center">
                     Add to cart <AiOutlineShoppingCart className="ml-1" />
                   </span>
                 </div>
@@ -218,7 +218,7 @@ const ProductDetails = ({ data }) => {
                     </h5>
                   </div>
                   <div
-                    className={`${styles.button} bg-primary mt-4 !rounded !h-11`}
+                    className={`${styles.button} bg-primary mt-4  !rounded !h-11`}
                     onClick={handleMessageSubmit}>
                     <span className="text-white flex items-center">
                       Send Message <AiOutlineMessage className="ml-1" />
@@ -251,7 +251,7 @@ const ProductDetailsInfo = ({
   const [active, setActive] = useState(1);
 
   return (
-    <div className="bg-white px-3 800px:px-10 py-2 rounded">
+    <div className="bg-secondary px-3 800px:px-10 py-2 rounded">
       <div className="w-full flex justify-between border-b pt-10 pb-2">
         <div className="relative">
           <h5

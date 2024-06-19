@@ -220,14 +220,14 @@ const PaymentInfo = ({
               <div className="w-[13px] h-[13px] bg-black rounded-full" />
             ) : null}
           </div>
-          <h4 className="text-[18px] pl-2 font-[600] text-[#000000b1]">
+          <h4 className="text-[18px] pl-2 font-[500] text-[#000000b1]">
             Pay with Debit/credit card
           </h4>
         </div>
 
         {/* pay with card */}
         {select === 1 ? (
-          <div className="w-full flex border-b">
+          <div className="w-full flex border-b py-4">
             <form className="w-full" onSubmit={paymentHandler}>
               <div className="w-full flex pb-3">
                 <div className="w-[50%]">
@@ -235,7 +235,7 @@ const PaymentInfo = ({
                   <input
                     required
                     placeholder={user && user.name}
-                    className={`${styles.input} !w-[95%] text-[#444]`}
+                    className={`${styles.input} !w-[90%] text-[#444]`}
                     value={user && user.name}
                   />
                 </div>
@@ -267,7 +267,7 @@ const PaymentInfo = ({
                 <div className="w-[50%]">
                   <label className="block pb-2">Card Number</label>
                   <CardNumberElement
-                    className={`${styles.input} !h-[35px] !w-[95%]`}
+                    className={`${styles.input}  !w-[90%]`}
                     options={{
                       style: {
                         base: {
@@ -287,9 +287,9 @@ const PaymentInfo = ({
                   />
                 </div>
                 <div className="w-[50%]">
-                  <label className="block pb-2">CVV</label>
+                  <label className="block pb-2">CVC</label>
                   <CardCvcElement
-                    className={`${styles.input} !h-[35px]`}
+                    className={`${styles.input} !w-[95%]`}
                     options={{
                       style: {
                         base: {
@@ -312,7 +312,7 @@ const PaymentInfo = ({
               <input
                 type="submit"
                 value="Submit"
-                className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+                className={`${styles.button} !bg-primary text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
               />
             </form>
           </div>
@@ -320,7 +320,7 @@ const PaymentInfo = ({
       </div>
 
       <br />
-      {/* paypal payment */}
+      {/* khalti payment */}
       <div>
         <div className="flex w-full pb-5 border-b mb-2">
           <div
@@ -330,8 +330,8 @@ const PaymentInfo = ({
               <div className="w-[13px] h-[13px] bg-black rounded-full" />
             ) : null}
           </div>
-          <h4 className="text-[18px] pl-2 font-[600] text-black">
-            Pay with Paypal
+          <h4 className="text-[18px] pl-2 font-[500] text-black">
+            Pay with Khalti
           </h4>
         </div>
 
@@ -339,12 +339,12 @@ const PaymentInfo = ({
         {select === 2 ? (
           <div className="w-full flex border-b">
             <div
-              className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+              className={`${styles.button} !bg-primary text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
               onClick={() => setOpen(true)}>
               Pay Now
             </div>
             {open && (
-              <div className="w-full fixed top-0 left-0 bg-black h-screen flex items-center justify-center z-[99999]">
+              <div className="w-full fixed top-0 left-0 bg-black/70 h-screen flex items-center justify-center z-[99999]">
                 <div className="w-full 800px:w-[40%] h-screen 800px:h-[80vh] bg-white rounded-[5px] shadow flex flex-col justify-center p-8 relative overflow-y-scroll">
                   <div className="w-full flex justify-end p-3">
                     <RxCross1
@@ -382,7 +382,7 @@ const PaymentInfo = ({
               <div className="w-[13px] h-[13px] bg-black rounded-full" />
             ) : null}
           </div>
-          <h4 className="text-[18px] pl-2 font-[600] text-[#000000b1]">
+          <h4 className="text-[18px] pl-2 font-[500] text-[#000000b1]">
             Cash on Delivery
           </h4>
         </div>
@@ -394,7 +394,7 @@ const PaymentInfo = ({
               <input
                 type="submit"
                 value="Confirm"
-                className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+                className={`${styles.button} !bg-primary text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
               />
             </form>
           </div>

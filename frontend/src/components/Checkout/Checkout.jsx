@@ -100,17 +100,17 @@ const Checkout = () => {
     });
   };
 
-  const discountPercentenge = couponCodeData ? discountPrice : "";
+  const discountPercentage = couponCodeData ? discountPrice : "";
 
   const totalPrice = couponCodeData
-    ? (subTotalPrice + shipping - discountPercentenge).toFixed(2)
+    ? (subTotalPrice + shipping - discountPercentage).toFixed(2)
     : (subTotalPrice + shipping).toFixed(2);
 
-  console.log(discountPercentenge);
+  console.log(discountPercentage);
 
   return (
     <div className="w-full flex flex-col items-center py-8">
-      <div className="w-[90%] 1000px:w-[70%] block 800px:flex">
+      <div className="w-[90%]  block 800px:flex">
         <div className="w-full 800px:w-[65%]">
           <ShippingInfo
             user={user}
@@ -136,7 +136,7 @@ const Checkout = () => {
             subTotalPrice={subTotalPrice}
             couponCode={couponCode}
             setCouponCode={setCouponCode}
-            discountPercentenge={discountPercentenge}
+            discountPercentage={discountPercentage}
           />
         </div>
       </div>
@@ -169,18 +169,18 @@ const ShippingInfo = ({
       <h5 className="text-[18px] font-[500]">Shipping Address</h5>
       <br />
       <form>
-        <div className="w-full flex pb-3">
+        <div className="w-full flex pb-7">
           <div className="w-[50%]">
-            <label className="block pb-2">Full Name</label>
+            <label className="block pb-2 font-[500]">Full Name</label>
             <input
               type="text"
               value={user && user.name}
               required
-              className={`${styles.input} !w-[95%]`}
+              className={`${styles.input} !w-[90%]`}
             />
           </div>
           <div className="w-[50%]">
-            <label className="block pb-2">Email Address</label>
+            <label className="block pb-2 font-[500]">Email Address</label>
             <input
               type="email"
               value={user && user.email}
@@ -190,33 +190,33 @@ const ShippingInfo = ({
           </div>
         </div>
 
-        <div className="w-full flex pb-3">
+        <div className="w-full flex pb-7">
           <div className="w-[50%]">
-            <label className="block pb-2">Phone Number</label>
+            <label className="block pb-2 font-[500]">Phone Number</label>
             <input
               type="number"
               required
               value={user && user.phoneNumber}
-              className={`${styles.input} !w-[95%]`}
+              className={`${styles.input} !w-[90%]`}
             />
           </div>
           <div className="w-[50%]">
-            <label className="block pb-2">Zip Code</label>
+            <label className="block pb-2 font-[500]">Zip Code</label>
             <input
               type="number"
               value={zipCode}
               onChange={(e) => setZipCode(e.target.value)}
               required
-              className={`${styles.input}`}
+              className={`${styles.input} !w-[90%]`}
             />
           </div>
         </div>
 
-        <div className="w-full flex pb-3">
+        <div className="w-full flex pb-7">
           <div className="w-[50%]">
-            <label className="block pb-2">Country</label>
+            <label className="block pb-2 font-[500]">Country</label>
             <select
-              className="w-[95%] border h-[40px] rounded-[5px]"
+              className={`${styles.input} !w-[90%] border  rounded-[5px]`}
               value={country}
               onChange={(e) => setCountry(e.target.value)}>
               <option className="block pb-2" value="">
@@ -231,9 +231,9 @@ const ShippingInfo = ({
             </select>
           </div>
           <div className="w-[50%]">
-            <label className="block pb-2">City</label>
+            <label className="block pb-2 font-[500]">City</label>
             <select
-              className="w-[95%] border h-[40px] rounded-[5px]"
+              className={`${styles.input} !w-[90%] border  rounded-[5px]`}
               value={city}
               onChange={(e) => setCity(e.target.value)}>
               <option className="block pb-2" value="">
@@ -249,19 +249,19 @@ const ShippingInfo = ({
           </div>
         </div>
 
-        <div className="w-full flex pb-3">
+        <div className="w-full flex pb-7">
           <div className="w-[50%]">
-            <label className="block pb-2">Address1</label>
+            <label className="block pb-2 font-[500]">Address1</label>
             <input
               type="address"
               required
               value={address1}
               onChange={(e) => setAddress1(e.target.value)}
-              className={`${styles.input} !w-[95%]`}
+              className={`${styles.input} !w-[90%]`}
             />
           </div>
           <div className="w-[50%]">
-            <label className="block pb-2">Address2</label>
+            <label className="block pb-2 font-[500]">Address2</label>
             <input
               type="address"
               value={address2}
@@ -312,7 +312,7 @@ const CartData = ({
   subTotalPrice,
   couponCode,
   setCouponCode,
-  discountPercentenge,
+  discountPercentage,
 }) => {
   return (
     <div className="w-full bg-white rounded-md p-5 pb-8">
@@ -329,7 +329,7 @@ const CartData = ({
       <div className="flex justify-between border-b pb-3">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
         <h5 className="text-[18px] font-[600]">
-          - {discountPercentenge ? "$" + discountPercentenge.toString() : null}
+          - {discountPercentage ? "$" + discountPercentage.toString() : null}
         </h5>
       </div>
       <h5 className="text-[18px] font-[600] text-end pt-3">${totalPrice}</h5>

@@ -31,7 +31,7 @@ const ProductCard = ({ data, isEvent }) => {
     } else {
       setClick(false);
     }
-  }, [wishlist]);
+  }, [data._id, wishlist]);
 
   const removeFromWishlistHandler = (data) => {
     setClick(!click);
