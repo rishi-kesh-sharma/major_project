@@ -15,6 +15,10 @@ import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
 import { RxCross1 } from "react-icons/rx";
+import Khalti from "./Khalti/Khalti";
+
+// qr code image
+import QrCodeImage from "../../Assests/sandeep_qr.jpeg";
 
 const Payment = () => {
   const [orderData, setOrderData] = useState([]);
@@ -187,6 +191,7 @@ const Payment = () => {
             createOrder={createOrder}
             paymentHandler={paymentHandler}
             cashOnDeliveryHandler={cashOnDeliveryHandler}
+            orderData={orderData}
           />
         </div>
         <div className="w-full 800px:w-[35%] 800px:mt-0 mt-8">
@@ -205,8 +210,15 @@ const PaymentInfo = ({
   createOrder,
   paymentHandler,
   cashOnDeliveryHandler,
+  orderData,
 }) => {
   const [select, setSelect] = useState(1);
+
+  const seller = {
+    qrCode: {
+      url: QrCodeImage,
+    },
+  };
 
   return (
     <div className="w-full 800px:w-[95%] bg-white rounded-md p-5 pb-8">
@@ -221,100 +233,19 @@ const PaymentInfo = ({
             ) : null}
           </div>
           <h4 className="text-[18px] pl-2 font-[500] text-[#000000b1]">
-            Pay with Debit/credit card
+            Pay With QR
           </h4>
         </div>
+        {/* pay with qr */}
 
-        {/* pay with card */}
+        {/* TODO: problem is user does not only buy one product at checkout . The products may belong to multiple vendors but can include the qr of the admins */}
         {select === 1 ? (
           <div className="w-full flex border-b py-4">
-            <form className="w-full" onSubmit={paymentHandler}>
-              <div className="w-full flex pb-3">
-                <div className="w-[50%]">
-                  <label className="block pb-2">Name On Card</label>
-                  <input
-                    required
-                    placeholder={user && user.name}
-                    className={`${styles.input} !w-[90%] text-[#444]`}
-                    value={user && user.name}
-                  />
-                </div>
-                <div className="w-[50%]">
-                  <label className="block pb-2">Exp Date</label>
-                  <CardExpiryElement
-                    className={`${styles.input}`}
-                    options={{
-                      style: {
-                        base: {
-                          fontSize: "19px",
-                          lineHeight: 1.5,
-                          color: "#444",
-                        },
-                        empty: {
-                          color: "#3a120a",
-                          backgroundColor: "transparent",
-                          "::placeholder": {
-                            color: "#444",
-                          },
-                        },
-                      },
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div className="w-full flex pb-3">
-                <div className="w-[50%]">
-                  <label className="block pb-2">Card Number</label>
-                  <CardNumberElement
-                    className={`${styles.input}  !w-[90%]`}
-                    options={{
-                      style: {
-                        base: {
-                          fontSize: "19px",
-                          lineHeight: 1.5,
-                          color: "#444",
-                        },
-                        empty: {
-                          color: "#3a120a",
-                          backgroundColor: "transparent",
-                          "::placeholder": {
-                            color: "#444",
-                          },
-                        },
-                      },
-                    }}
-                  />
-                </div>
-                <div className="w-[50%]">
-                  <label className="block pb-2">CVC</label>
-                  <CardCvcElement
-                    className={`${styles.input} !w-[95%]`}
-                    options={{
-                      style: {
-                        base: {
-                          fontSize: "19px",
-                          lineHeight: 1.5,
-                          color: "#444",
-                        },
-                        empty: {
-                          color: "#3a120a",
-                          backgroundColor: "transparent",
-                          "::placeholder": {
-                            color: "#444",
-                          },
-                        },
-                      },
-                    }}
-                  />
-                </div>
-              </div>
-              <input
-                type="submit"
-                value="Submit"
-                className={`${styles.button} !bg-primary text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
-              />
-            </form>
+            <img
+              src={`${seller.qrCode?.url}`}
+              alt=""
+              className="w-[200px] h-[200px] object-contain cursor-pointer"
+            />
           </div>
         ) : null}
       </div>
@@ -335,37 +266,20 @@ const PaymentInfo = ({
           </h4>
         </div>
 
-        {/* pay with payement */}
+        {/* pay with khalti */}
         {select === 2 ? (
           <div className="w-full flex border-b">
-            <div
-              className={`${styles.button} !bg-primary text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
-              onClick={() => setOpen(true)}>
-              Pay Now
-            </div>
+            <Khalti orderData={orderData} />
+
             {open && (
-              <div className="w-full fixed top-0 left-0 bg-black/70 h-screen flex items-center justify-center z-[99999]">
-                <div className="w-full 800px:w-[40%] h-screen 800px:h-[80vh] bg-white rounded-[5px] shadow flex flex-col justify-center p-8 relative overflow-y-scroll">
-                  <div className="w-full flex justify-end p-3">
-                    <RxCross1
-                      size={20}
-                      className="cursor-pointer absolute top-3 right-3"
-                      onClick={() => setOpen(false)}
-                    />
-                  </div>
-                  <PayPalScriptProvider
-                    options={{
-                      "client-id":
-                        "Aczac4Ry9_QA1t4c7TKH9UusH3RTe6onyICPoCToHG10kjlNdI-qwobbW9JAHzaRQwFMn2-k660853jn",
-                    }}>
-                    <PayPalButtons
-                      style={{ layout: "vertical" }}
-                      onApprove={onApprove}
-                      createOrder={createOrder}
-                    />
-                  </PayPalScriptProvider>
+              <>
+                <div
+                  className={`${styles.button} !bg-primary text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
+                  onClick={() => setOpen(true)}>
+                  Pay Now
                 </div>
-              </div>
+                <Khalti />
+              </>
             )}
           </div>
         ) : null}
@@ -421,11 +335,11 @@ const CartData = ({ orderData }) => {
       <div className="flex justify-between border-b pb-3">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
         <h5 className="text-[18px] font-[600]">
-          {orderData?.discountPrice ? "$" + orderData.discountPrice : "-"}
+          {orderData?.discountPrice ? "Nrs." + orderData.discountPrice : "-"}
         </h5>
       </div>
       <h5 className="text-[18px] font-[600] text-end pt-3">
-        ${orderData?.totalPrice}
+        Nrs.{orderData?.totalPrice}
       </h5>
       <br />
     </div>

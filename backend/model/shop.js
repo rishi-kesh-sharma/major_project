@@ -26,7 +26,7 @@ const shopSchema = new mongoose.Schema({
   },
   phoneNumber: {
     type: Number,
-    required: true,
+    required: false,
   },
   role: {
     type: String,
@@ -42,9 +42,19 @@ const shopSchema = new mongoose.Schema({
       required: true,
     },
   },
+  qrCode: {
+    public_id: {
+      type: String,
+      required: true,
+    },
+    url: {
+      type: String,
+      required: true,
+    },
+  },
   zipCode: {
     type: Number,
-    required: true,
+    required: false,
   },
   withdrawMethod: {
     type: Object,
@@ -53,7 +63,7 @@ const shopSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  transections: [
+  transactions: [
     {
       amount: {
         type: Number,
@@ -95,7 +105,7 @@ shopSchema.methods.getJwtToken = function () {
   });
 };
 
-// comapre password
+// compare password
 shopSchema.methods.comparePassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };

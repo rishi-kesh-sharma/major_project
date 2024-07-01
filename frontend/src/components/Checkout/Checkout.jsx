@@ -318,23 +318,31 @@ const CartData = ({
     <div className="w-full bg-white rounded-md p-5 pb-8">
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">subtotal:</h3>
-        <h5 className="text-[18px] font-[600]">${subTotalPrice}</h5>
+        <h5 className="text-[18px] font-[600]">Nrs. {subTotalPrice}</h5>
       </div>
       <br />
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">shipping:</h3>
-        <h5 className="text-[18px] font-[600]">${shipping.toFixed(2)}</h5>
+        <h5 className="text-[18px] font-[600]">Nrs. {shipping.toFixed(2)}</h5>
       </div>
       <br />
       <div className="flex justify-between border-b pb-3">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
         <h5 className="text-[18px] font-[600]">
-          - {discountPercentage ? "$" + discountPercentage.toString() : null}
+          - {discountPercentage ? "Nrs." + discountPercentage.toString() : null}
         </h5>
       </div>
-      <h5 className="text-[18px] font-[600] text-end pt-3">${totalPrice}</h5>
+      <div className="flex justify-between items-center border-b pb-3">
+        <h3 className="text-[16px] font-[400] text-[#000000a4]">Total:</h3>
+        <h5 className="text-[18px] font-[600]">
+          {/* - {discountPercentage ? "Nrs." + discountPercentage.toString() : null} */}
+          <h5 className="text-[18px] font-[600] text-end pt-3">
+            Nrs.{totalPrice}
+          </h5>
+        </h5>
+      </div>
       <br />
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input
           type="text"
           className={`${styles.input} h-[40px] pl-2`}
@@ -349,7 +357,7 @@ const CartData = ({
           value="Apply code"
           type="submit"
         />
-      </form>
+      </form> */}
     </div>
   );
 };

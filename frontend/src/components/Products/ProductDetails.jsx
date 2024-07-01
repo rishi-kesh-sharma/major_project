@@ -36,7 +36,7 @@ const ProductDetails = ({ data }) => {
     } else {
       setClick(false);
     }
-  }, [data, wishlist]);
+  }, [data, dispatch, wishlist]);
 
   const incrementCount = () => {
     setCount(count + 1);
@@ -149,14 +149,14 @@ const ProductDetails = ({ data }) => {
                 <p>{data.description}</p>
                 <div className="flex pt-3">
                   <h4 className={`${styles.productDiscountPrice}`}>
-                    {data.discountPrice}$
+                    Nrs.{data.discountPrice}
                   </h4>
                   <h3 className={`${styles.price}`}>
-                    {data.originalPrice ? data.originalPrice + "$" : null}
+                    {data.originalPrice ? "Nrs." + data.originalPrice : null}
                   </h3>
                 </div>
 
-                <div className="flex items-center mt-12 justify-between pr-3">
+                <div className="flex items-center mt-8 justify-between pr-3">
                   <div>
                     <button
                       className="bg-gradient-to-r from-primary to-primary-lighter text-white font-bold rounded-l px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
@@ -191,15 +191,16 @@ const ProductDetails = ({ data }) => {
                       />
                     )}
                   </div>
+                  <div
+                    className={`${styles.button} !mt-4 !rounded !h-11 flex items-center bg-transparent`}
+                    onClick={() => addToCartHandler(data._id)}>
+                    <span className=" flex items-center text-primary">
+                      Add to cart <AiOutlineShoppingCart className="ml-1" />
+                    </span>
+                  </div>
                 </div>
-                <div
-                  className={`${styles.button} !mt-6 !rounded !h-11 flex items-center bg-transparent`}
-                  onClick={() => addToCartHandler(data._id)}>
-                  <span className=" flex items-center">
-                    Add to cart <AiOutlineShoppingCart className="ml-1" />
-                  </span>
-                </div>
-                <div className="flex items-center pt-8">
+
+                <div className="flex items-center justify-between pt-8  ">
                   <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
                       src={`${data?.shop?.avatar?.url}`}

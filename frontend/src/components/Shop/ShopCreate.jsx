@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import styles from "../../styles/styles";
 import { Link, useNavigate } from "react-router-dom";
+import { IoQrCodeOutline } from "react-icons/io5";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
@@ -14,6 +15,7 @@ const ShopCreate = () => {
   const [address, setAddress] = useState("");
   const [zipCode, setZipCode] = useState();
   const [avatar, setAvatar] = useState();
+  const [qrCode, setQrCode] = useState();
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
@@ -26,6 +28,7 @@ const ShopCreate = () => {
         email,
         password,
         avatar,
+        qrCode,
         zipCode,
         address,
         phoneNumber,
@@ -48,6 +51,8 @@ const ShopCreate = () => {
   const handleFileInputChange = (e) => {
     const reader = new FileReader();
 
+    console.log(e.target.files[0], "avatar image");
+
     reader.onload = () => {
       if (reader.readyState === 2) {
         setAvatar(reader.result);
@@ -56,9 +61,20 @@ const ShopCreate = () => {
 
     reader.readAsDataURL(e.target.files[0]);
   };
+  const handleQrCodeInputChange = (e) => {
+    const reader = new FileReader();
+    console.log(e.target.files[0], "qr image");
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setQrCode(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
 
+  console.log(qrCode);
   return (
-    <div className="min-h-screen bg-secondaryflex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-secondary flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Register as a seller
@@ -190,41 +206,74 @@ const ShopCreate = () => {
               </div>
             </div>
 
-            <div>
-              <label
-                htmlFor="avatar"
-                className="block text-sm font-medium text-gray-700"></label>
-              <div className="mt-2 flex items-center">
-                <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
-                  {avatar ? (
-                    <img
-                      src={avatar}
-                      alt="avatar"
-                      className="h-full w-full object-cover rounded-full"
-                    />
-                  ) : (
-                    <RxAvatar className="h-8 w-8" />
-                  )}
-                </span>
+            <div className="flex items-center gap-[2rem]">
+              <div>
                 <label
-                  htmlFor="file-input"
-                  className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-secondary">
-                  <span>Upload a file</span>
-                  <input
-                    type="file"
-                    name="avatar"
-                    id="file-input"
-                    onChange={handleFileInputChange}
-                    className="sr-only"
-                  />
-                </label>
+                  htmlFor="avatar"
+                  className="block text-sm font-medium text-gray-700"></label>
+                <div className="mt-2 flex items-center">
+                  <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
+                    {avatar ? (
+                      <img
+                        src={avatar}
+                        alt="avatar"
+                        className="h-full w-full object-cover rounded-full"
+                      />
+                    ) : (
+                      <RxAvatar className="h-8 w-8" />
+                    )}
+                  </span>
+                  <label
+                    htmlFor="avatar"
+                    className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-secondary">
+                    <span>Upload a file</span>
+                    <input
+                      type="file"
+                      name="avatar"
+                      id="avatar"
+                      onChange={handleFileInputChange}
+                      className="sr-only"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              {/* qr */}
+              <div>
+                <label
+                  htmlFor="qrCode"
+                  className="block text-sm font-medium text-gray-700"></label>
+                <div className="mt-2 flex items-center">
+                  <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
+                    {qrCode ? (
+                      <img
+                        src={qrCode}
+                        alt="qrCode"
+                        className="h-full w-full object-cover rounded-full "
+                      />
+                    ) : (
+                      <IoQrCodeOutline className="text-lg h-8 w-8" />
+                    )}
+                  </span>
+                  <label
+                    htmlFor="qrCode"
+                    className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-secondary">
+                    <span>Upload QR </span>
+                    <input
+                      type="file"
+                      name="qrCode"
+                      id="qrCode"
+                      onChange={handleQrCodeInputChange}
+                      className="sr-only"
+                    />
+                  </label>
+                </div>
               </div>
             </div>
-
             <div>
               <button
                 type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700">
+                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-700">
                 Submit
               </button>
             </div>

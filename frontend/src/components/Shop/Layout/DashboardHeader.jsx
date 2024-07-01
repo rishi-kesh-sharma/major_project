@@ -5,6 +5,7 @@ import { FiPackage, FiShoppingBag } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { BiMessageSquareDetail } from "react-icons/bi";
+import LogoImage from "../../../Assests/logo.png";
 
 const DashboardHeader = () => {
   const { seller } = useSelector((state) => state.seller);
@@ -13,27 +14,29 @@ const DashboardHeader = () => {
       <div>
         <Link to="/">
           <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-            alt=""
+            // src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+            src={LogoImage}
+            alt="logo"
+            className="h-[5rem] w-[5rem] rounded-full"
           />
         </Link>
       </div>
       <div className="flex items-center">
         <div className="flex items-center mr-4">
-          <Link to="/dashboard/cupouns" className="800px:block hidden">
+          {/* <Link to="/dashboard/cupouns" className="800px:block hidden">
             <AiOutlineGift
               color="#555"
               size={20}
               className="mx-5 cursor-pointer"
             />
-          </Link>
-          <Link to="/dashboard-events" className="800px:block hidden">
+          </Link> */}
+          {/* <Link to="/dashboard-events" className="800px:block hidden">
             <MdOutlineLocalOffer
               color="#555"
               size={20}
               className="mx-5 cursor-pointer"
             />
-          </Link>
+          </Link> */}
           <Link to="/dashboard-products" className="800px:block hidden">
             <FiShoppingBag
               color="#555"

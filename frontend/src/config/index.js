@@ -1,6 +1,8 @@
+import logo from "../Assests/logo.png";
+
 export const config = {
   appName: `EcoCycleMart`,
-  logo: "https://shopo.quomodothemes.website/assets/images/logo.svg",
+  logo: logo,
   hero: {
     title: {
       line1: `Best Collection for`,

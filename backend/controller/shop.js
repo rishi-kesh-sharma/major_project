@@ -24,6 +24,12 @@ router.post(
       const myCloud = await cloudinary.v2.uploader.upload(req.body.avatar, {
         folder: "avatars",
       });
+      const myCloudQrCodes = await cloudinary.v2.uploader.upload(
+        req.body.qrCode,
+        {
+          folder: "qrCodes",
+        }
+      );
 
       const seller = {
         name: req.body.name,
@@ -32,6 +38,10 @@ router.post(
         avatar: {
           public_id: myCloud.public_id,
           url: myCloud.secure_url,
+        },
+        qrCode: {
+          public_id: myCloudQrCodes.public_id,
+          url: myCloudQrCodes.secure_url,
         },
         address: req.body.address,
         phoneNumber: req.body.phoneNumber,
@@ -82,8 +92,16 @@ router.post(
       if (!newSeller) {
         return next(new ErrorHandler("Invalid token", 400));
       }
-      const { name, email, password, avatar, zipCode, address, phoneNumber } =
-        newSeller;
+      const {
+        name,
+        email,
+        password,
+        qrCode,
+        avatar,
+        zipCode,
+        address,
+        phoneNumber,
+      } = newSeller;
 
       let seller = await Shop.findOne({ email });
 
@@ -99,6 +117,7 @@ router.post(
         zipCode,
         address,
         phoneNumber,
+        qrCode,
       });
 
       sendShopToken(seller, 201, res);
@@ -215,10 +234,21 @@ router.put(
         folder: "avatars",
         width: 150,
       });
+      const myCloudQrCode = await cloudinary.v2.uploader.upload(
+        req.body.qrCode,
+        {
+          folder: "qrCodes",
+          width: 150,
+        }
+      );
 
       existsSeller.avatar = {
         public_id: myCloud.public_id,
         url: myCloud.secure_url,
+      };
+      existsSeller.qrCode = {
+        public_id: myCloudQrCode.public_id,
+        url: myCloudQrCode.secure_url,
       };
 
       await existsSeller.save();
@@ -334,7 +364,7 @@ router.put(
   })
 );
 
-// delete seller withdraw merthods --- only seller
+// delete seller withdraw methods --- only seller
 router.delete(
   "/delete-withdraw-method/",
   isSeller,

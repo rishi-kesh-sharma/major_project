@@ -58,7 +58,14 @@ const Header = ({ activeHeading }) => {
         <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
           <div>
             <Link to="/">
-              <img src={config.logo} alt="" />
+              <img
+                src={config.logo}
+                alt=""
+                height={"2rem"}
+                width={"2rem"}
+                className="h-[5rem] w-[5rem] object-contain rounded-full"
+              />
+              {/* {config.logo} */}
             </Link>
           </div>
           {/* search box */}

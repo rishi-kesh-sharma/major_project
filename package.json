@@ -8,6 +8,7 @@
     "start:backend": "npm --prefix ./backend/ run start ",
     "start:socket": "npm --prefix ./socket/ run start ",
     "start:frontend": "npm --prefix ./frontend run start ",
+    "seed:json":"node faker/product.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,8 @@
   "homepage": "https://github.com/rishi-kesh-sharma/major_project#readme",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1"
   }
 }

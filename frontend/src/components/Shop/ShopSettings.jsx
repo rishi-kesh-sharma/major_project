@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 const ShopSettings = () => {
   const { seller } = useSelector((state) => state.seller);
   const [avatar, setAvatar] = useState();
+  const [qrCode, setQrCode] = useState();
   const [name, setName] = useState(seller && seller.name);
   const [description, setDescription] = useState(
     seller && seller.description ? seller.description : ""
@@ -72,15 +73,16 @@ const ShopSettings = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex flex-col items-center">
-      <div className="flex w-full 800px:w-[80%] flex-col justify-center my-5">
-        <div className="w-full flex items-center justify-center">
+    <div className="w-full  flex flex-col items-center max-h-[80vh] overflow-auto py-[2rem] ">
+      <div className="flex  flex-col justify-center my-5 w-full ">
+        <div className=" flex items-center  gap-[2rem] pl-[6%] w-[90%]">
           <div className="relative">
             <img
               src={avatar ? avatar : `${seller.avatar?.url}`}
               alt=""
               className="w-[200px] h-[200px] rounded-full cursor-pointer"
             />
+
             <div className="w-[30px] h-[30px] bg-secondary rounded-full flex items-center justify-center cursor-pointer absolute bottom-[10px] right-[15px]">
               <input
                 type="file"
@@ -93,14 +95,20 @@ const ShopSettings = () => {
               </label>
             </div>
           </div>
+          <img
+            src={avatar ? avatar : `${seller.qrCode?.url}`}
+            alt=""
+            className="w-[200px] h-[200px] object-contain cursor-pointer"
+          />
         </div>
 
         {/* shop info */}
         <form
+          // eslint-disable-next-line jsx-a11y/aria-props
           aria-aria-required={true}
           className="flex flex-col items-center"
           onSubmit={updateHandler}>
-          <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
+          <div className="w-[95%] flex items-center flex-col  mt-5">
             <div className="w-full pl-[3%]">
               <label className="block pb-2">Shop Name</label>
             </div>
@@ -109,11 +117,11 @@ const ShopSettings = () => {
               placeholder={`${seller.name}`}
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} !w-[95%] py-4 mb-4 800px:mb-0`}
               required
             />
           </div>
-          <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
+          <div className="w-[95%] flex items-center flex-col  mt-5">
             <div className="w-full pl-[3%]">
               <label className="block pb-2">Shop description</label>
             </div>
@@ -126,10 +134,10 @@ const ShopSettings = () => {
               }`}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} !w-[95%] py-4 mb-4 800px:mb-0`}
             />
           </div>
-          <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
+          <div className="w-[95%] flex items-center flex-col  mt-5">
             <div className="w-full pl-[3%]">
               <label className="block pb-2">Shop Address</label>
             </div>
@@ -138,12 +146,12 @@ const ShopSettings = () => {
               placeholder={seller?.address}
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} !w-[95%] py-4 mb-4 800px:mb-0`}
               required
             />
           </div>
 
-          <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
+          <div className="w-[95%] flex items-center flex-col  mt-5">
             <div className="w-full pl-[3%]">
               <label className="block pb-2">Shop Phone Number</label>
             </div>
@@ -152,12 +160,12 @@ const ShopSettings = () => {
               placeholder={seller?.phoneNumber}
               value={phoneNumber}
               onChange={(e) => setPhoneNumber(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} !w-[95%] py-4 mb-4 800px:mb-0`}
               required
             />
           </div>
 
-          <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
+          <div className="w-[95%] flex items-center flex-col  mt-5">
             <div className="w-full pl-[3%]">
               <label className="block pb-2">Shop Zip Code</label>
             </div>
@@ -166,16 +174,16 @@ const ShopSettings = () => {
               placeholder={seller?.zipCode}
               value={zipCode}
               onChange={(e) => setZipcode(e.target.value)}
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} !w-[95%] py-4 mb-4 800px:mb-0`}
               required
             />
           </div>
 
-          <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
+          <div className="w-[95%] flex items-center flex-col  mt-5">
             <input
               type="submit"
               value="Update Shop"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} !w-[95%] py-4 mb-4 800px:mb-0 bg-primary !text-primary-foreground`}
               required
               readOnly
             />
