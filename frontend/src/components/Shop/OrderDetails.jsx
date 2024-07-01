@@ -99,7 +99,7 @@ const OrderDetails = () => {
             <div className="w-full">
               <h5 className="pl-3 text-[20px]">{item.name}</h5>
               <h5 className="pl-3 text-[20px] text-[#00000091]">
-                US${item.discountPrice} x {item.qty}
+                Nrs.{item.discountPrice} x {item.qty}
               </h5>
             </div>
           </div>
@@ -107,7 +107,7 @@ const OrderDetails = () => {
 
       <div className="border-t w-full text-right">
         <h5 className="pt-3 text-[18px]">
-          Total Price: <strong>US${data?.totalPrice}</strong>
+          Total Price: <strong>Nrs.{data?.totalPrice}</strong>
         </h5>
       </div>
       <br />

@@ -72,7 +72,7 @@ const DashboardSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
+      {/* <div className="w-full flex items-center p-4">
         <Link to="/dashboard-events" className="w-full flex items-center">
           <MdOutlineLocalOffer
             size={20}
@@ -85,9 +85,9 @@ const DashboardSideBar = ({ active }) => {
             All Events
           </h5>
         </Link>
-      </div>
+      </div> */}
 
-      <div className="w-full flex items-center p-4">
+      {/* <div className="w-full flex items-center p-4">
         <Link to="/dashboard-create-event" className="w-full flex items-center">
           <VscNewFile size={20} color={`${active === 6 ? "purple" : "#555"}`} />
           <h5
@@ -97,7 +97,7 @@ const DashboardSideBar = ({ active }) => {
             Create Event
           </h5>
         </Link>
-      </div>
+      </div> */}
 
       <div className="w-full flex items-center p-4">
         <Link
@@ -146,7 +146,7 @@ const DashboardSideBar = ({ active }) => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center p-4">
+      {/* <div className="w-full flex items-center p-4">
         <Link to="/dashboard-refunds" className="w-full flex items-center">
           <HiOutlineReceiptRefund
             size={20}
@@ -159,7 +159,7 @@ const DashboardSideBar = ({ active }) => {
             Refunds
           </h5>
         </Link>
-      </div>
+      </div> */}
 
       <div className="w-full flex items-center p-4">
         <Link to="/settings" className="w-full flex items-center">

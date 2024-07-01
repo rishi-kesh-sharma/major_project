@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Backend Server",
+      "type": "shell",
+      "command": "npm --prefix ./backend/ run start",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Start Socket Server",
+      "type": "shell",
+      "command": "npm --prefix ./socket/ run start",
+      "isBackground": true,
+
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "dependsOrder": "parallel"
+    },
+    {
+      "label": "Start React Server",
+      "type": "shell",
+      "command": "npm --prefix ./frontend/ run start",
+      "isBackground": true,
+
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "dependsOn": ["Start Backend Server", "Start Socket Server"],
+      "dependsOrder": "parallel"
+    },
+
+    {
+      "label": "Start Backend, Socket and Frontend Server",
+      "type": "shell",
+      "command": "npm run start:all",
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}

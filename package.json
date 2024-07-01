@@ -1,0 +1,27 @@
+{
+  "name": "ecocyclemart",
+  "version": "1.0.0",
+  "description": "@copyright by becodemy 2023",
+  "main": "index.js",
+  "scripts": {
+    "start:all": "concurrently  -n \"BACKEND,SOCKET,FRONTEND\" -c \"green,blue,magenta\"   \" npm run start:backend \"  \" npm run start:socket \" \" npm run start:frontend \" ",
+    "start:backend": "npm --prefix ./backend/ run start ",
+    "start:socket": "npm --prefix ./socket/ run start ",
+    "start:frontend": "npm --prefix ./frontend run start ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rishi-kesh-sharma/major_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rishi-kesh-sharma/major_project/issues"
+  },
+  "homepage": "https://github.com/rishi-kesh-sharma/major_project#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
